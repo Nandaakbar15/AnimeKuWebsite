@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Form Tambah Anime</h2>
+    <form
+      action="/admin/datapost/tambahPost"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="Judul Post"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Penulis</label>
+        <input
+          type="text"
+          class="form-control"
+          id="penulis"
+          name="penulis"
+          placeholder="Penulis Post"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="tgl_post" class="form-label">Tanggal Post</label>
+        <input
+          type="date"
+          class="form-control"
+          id="tgl_post"
+          name="tgl_post"
+          placeholder="Tanggal Post"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Body</label>
+        <textarea
+          name="body"
+          id="body"
+          placeholder="Isi Post"
+          rows="4"
+          cols="50"
+          maxlength="500"
+        ></textarea>
+        <!-- Maximum character limit -->
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          name="image"
+          placeholder="Image of Anime"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Tambah!</button>
+    </form>
+    <a href="/admin/datapost" class="btn btn-primary">Kembali</a>
+  </div>
+</div>

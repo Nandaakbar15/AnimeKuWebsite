@@ -1,0 +1,65 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h1>Data Anime</h1>
+    <a href="/admin/dataanime/viewtambah_anime" class="btn btn-primary"
+      >Tambah Anime</a
+    >
+    <% if (msg.length !== 0) { %>
+    <div class="alert alert-success" role="alert"><%= msg; %></div>
+    <% } %>
+  </div>
+  <div class="card-body">
+    <table id="datatablesSimple">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>First Aired</th>
+          <th>Status</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% anime.forEach(data => { %>
+        <tr>
+          <td><%= data.title %></td>
+          <td><%= data.author %></td>
+          <td><%= data.genre %></td>
+          <td><%= data.first_aired %></td>
+          <td><%= data.status %></td>
+          <td>
+            <img
+              src="/images/<%= data.image %>"
+              alt="<%= data.title %>"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+          </td>
+          <td>
+            <a
+              href="/admin/dataanime/edit/<%= data.title %>"
+              class="btn btn-info badge"
+              >Ubah</a
+            >
+            <form
+              action="/admin/dataanime/delete?_method=DELETE"
+              method="POST"
+              class="d-inline"
+            >
+              <input type="hidden" name="title" value="<%= data.title %>" />
+              <button
+                type="submit"
+                class="btn btn-danger badge"
+                onclick="return confirm('Yakin mau hapus data ini?')"
+              >
+                hapus
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

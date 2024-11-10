@@ -1,0 +1,63 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h1>Data Post</h1>
+    <a href="/admin/datapost/viewtambahPost" class="btn btn-primary"
+      >Tambah Post</a
+    >
+  </div>
+  <div class="card-body">
+    <table id="datatablesSimple">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Penulis</th>
+          <th>Tanggal Post</th>
+          <th>Isi Post</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% post.forEach(data => { %>
+        <tr>
+          <td><%= data.title %></td>
+          <td><%= data.penulis %></td>
+          <td><%= data.tgl_post %></td>
+          <td>
+            <%= data.body.length > 100 ? data.body.substring(0, 100) + "..." :
+            data.body %>
+          </td>
+          <td>
+            <img
+              src="/images/<%= data.image %>"
+              alt="<%= data.title %>"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+          </td>
+          <td>
+            <a
+              href="/admin/datapost/edit/<%= data.title %>"
+              class="btn btn-info badge"
+              >Ubah</a
+            >
+            <form
+              action="/admin/datapost/delete?_method=DELETE"
+              method="POST"
+              class="d-inline"
+            >
+              <input type="hidden" name="title" value="<%= data.title %>" />
+              <button
+                type="submit"
+                class="btn btn-danger badge"
+                onclick="return confirm('Yakin mau hapus data ini?')"
+              >
+                hapus
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

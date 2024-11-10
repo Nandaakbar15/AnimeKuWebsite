@@ -1,0 +1,73 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Form Tambah Anime</h2>
+    <form
+      action="/admin/dataanime/tambahAnime"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="Title of Anime"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          name="author"
+          placeholder="Author of Anime"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="first_aired" class="form-label">First Aired</label>
+        <input
+          type="text"
+          class="form-control"
+          id="first_aired"
+          name="first_aired"
+          placeholder="First Aired of Anime"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="genre"
+          name="genre"
+          placeholder="Genre of Anime"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <input
+          type="text"
+          class="form-control"
+          id="status"
+          name="status"
+          placeholder="Status of Anime"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          name="image"
+          placeholder="Image of Anime"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Tambah!</button>
+    </form>
+    <a href="/admin/dataanime" class="btn btn-primary">Kembali</a>
+  </div>
+</div>

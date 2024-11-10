@@ -1,0 +1,104 @@
+<div class="card">
+  <div class="card-body">
+    <h2>Form Tambah Anime</h2>
+    <form
+      action="/admin/dataanime/edit/<%= anime.title %>?_method=PUT"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          value="<%= anime.title %>"
+          placeholder="Anime Title"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          name="author"
+          value="<%= anime.author %>"
+          placeholder="Anime Author"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="first_aired" class="form-label">First Aired</label>
+        <input
+          type="text"
+          class="form-control"
+          id="first_aired"
+          name="first_aired"
+          value="<%= anime.first_aired %>"
+          placeholder="Anime First Aired"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="genre"
+          name="genre"
+          value="<%= anime.genre %>"
+          placeholder="Anime Genre"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <input
+          type="text"
+          class="form-control"
+          id="status"
+          name="status"
+          value="<%= anime.status %>"
+          placeholder="Anime Status"
+        />
+      </div>
+      <div class="mb-3">
+        <% if (anime.image) { %>
+        <img
+          src="/images/<%= anime.image %>"
+          alt="<%= anime.judul %>"
+          style="width: 150px; height: 150px; object-fit: cover"
+        />
+        <% } %>
+        <div class="img-preview">
+          <label for="image" class="form-label">Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="image"
+            name="image"
+            placeholder="Anime Picture"
+            value="<%= anime.image %>"
+            onchange="previewImage()"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Ubah!</button>
+    </form>
+    <a href="/admin/dataanime" class="btn btn-primary">Kembali</a>
+  </div>
+</div>
+<script text="text/javascript">
+  function previewImage() {
+    const foto = document.querySelector("#image");
+    const imgPreview = document.querySelector(".img-preview");
+
+    imgPreview.style.display = "block";
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(foto.files[0]);
+
+    oFReader.onload = function (oFREvent) {
+      imgPreview.src = oFREvent.target.result;
+    };
+  }
+</script>

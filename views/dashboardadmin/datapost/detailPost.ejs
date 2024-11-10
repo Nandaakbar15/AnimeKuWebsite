@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    <h1><%= post.title %></h1>
+  </div>
+  <div class="card-body">
+    <p><strong>Penulis:</strong> <%= post.penulis %></p>
+    <p><strong>Tanggal Post:</strong> <%= post.tgl_post.toDateString() %></p>
+    <p><strong>Body:</strong></p>
+    <p><%= post.body %></p>
+    <img
+      src="/images/<%= post.image %>"
+      alt="<%= post.title %>"
+      style="width: 300px; height: auto"
+    />
+  </div>
+</div>
