@@ -22,10 +22,25 @@ const {
   storePost,
 } = require("../controllers/postController");
 
+// login controller
+const { login, checkLogin } = require("../controllers/loginController");
+
+// register controller
+const { register } = require("../controllers/registerController");
+
 // default route
 router.get("/", (req, res) => {
   res.redirect("/admin/dashboard");
 });
+
+// login route
+router.get("/login", login);
+
+// cek login route
+router.post("/login", checkLogin);
+
+// register route
+router.get("/register", register);
 
 // admin route
 router.get("/admin/dashboard", index);
