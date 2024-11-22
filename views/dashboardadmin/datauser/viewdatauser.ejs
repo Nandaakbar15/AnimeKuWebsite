@@ -1,0 +1,45 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h1>Data User</h1>
+  </div>
+  <div class="card-body">
+    <table id="datatablesSimple">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% user.forEach(data => { %>
+        <tr>
+          <td><%= data.username %></td>
+          <td><%= data.email %></td>
+          <td><%= data.role %></td>
+          <td>
+            <form
+              action="/admin/datauser/delete?_method=DELETE"
+              method="POST"
+              class="d-inline"
+            >
+              <input
+                type="hidden"
+                name="username"
+                value="<%= data.username %>"
+              />
+              <button
+                type="submit"
+                class="btn btn-danger badge"
+                onclick="return confirm('Yakin mau hapus data ini?')"
+              >
+                hapus
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

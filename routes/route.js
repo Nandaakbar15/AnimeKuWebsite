@@ -22,6 +22,9 @@ const {
   storePost,
 } = require("../controllers/postController");
 
+// data user controller
+const { indexDataUser } = require("../controllers/datauserController");
+
 // login controller
 const { login, checkLogin } = require("../controllers/loginController");
 
@@ -71,5 +74,10 @@ router.put("/admin/dataanime/edit/:title", upload.single("image"), update);
 
 // hapus anime
 router.delete("/admin/dataanime/delete/:id", destroy);
+
+// route data user
+router.get("/admin/datauser", indexDataUser);
+
+// route untuk user biasa (bukan admin)
 
 module.exports = router;

@@ -11,10 +11,12 @@ exports.register = (req, res) => {
 // proses register / buat akun baru
 exports.addUser = async (req, res) => {
   try {
+    const hashedPassword = await bcryptjs.hash(req.body.password, 10);
+
     const user = new User({
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: hashedPassword,
     });
 
     await user.save();
