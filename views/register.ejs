@@ -9,6 +9,12 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link
+      rel="shortcut icon"
+      href="/images/Dragonball-Goku.png
+    "
+      type="image/x-icon"
+    />
     <title><%- title %></title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script
@@ -20,6 +26,9 @@
     <div id="layoutAuthentication">
       <div id="layoutAuthentication_content">
         <main>
+          <% if (msg.length !== 0) { %>
+          <div class="alert alert-success" role="alert"><%= msg; %></div>
+          <% } %>
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-7">
@@ -49,6 +58,7 @@
                               id="email"
                               type="text"
                               placeholder="Masukan email kamu"
+                              name="email"
                             />
                             <label for="email">Email</label>
                           </div>
@@ -60,6 +70,7 @@
                           id="password"
                           type="password"
                           placeholder="Masukan password kamu"
+                          name="password"
                         />
                         <label for="password">Password</label>
                       </div>

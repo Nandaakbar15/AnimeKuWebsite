@@ -26,14 +26,26 @@ const {
 const { indexDataUser } = require("../controllers/datauserController");
 
 // login controller
-const { login, checkLogin } = require("../controllers/loginController");
+const { login, checkLogin, logout } = require("../controllers/loginController");
 
 // register controller
-const { register } = require("../controllers/registerController");
+const { register, addUser } = require("../controllers/registerController");
+
+// user non admin controller
+const {indexUser} = require("../controllers/userController");
+
+
+const isAuthenticated = (req, res, next) => {
+  if (req.session.user) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
 
 // default route
 router.get("/", (req, res) => {
-  res.redirect("/admin/dashboard");
+  res.redirect("/login");
 });
 
 // login route
@@ -42,11 +54,17 @@ router.get("/login", login);
 // cek login route
 router.post("/login", checkLogin);
 
+// logout route
+router.get("/logout", logout);
+
 // register route
 router.get("/register", register);
 
+// register logic
+router.post("/register", addUser);
+
 // admin route
-router.get("/admin/dashboard", index);
+router.get("/admin/dashboard", isAuthenticated, index);
 
 // data anime
 router.get("/admin/dataanime", getAnime);
@@ -79,5 +97,6 @@ router.delete("/admin/dataanime/delete/:id", destroy);
 router.get("/admin/datauser", indexDataUser);
 
 // route untuk user biasa (bukan admin)
+router.get("/user/dashboarduser", indexUser);
 
 module.exports = router;

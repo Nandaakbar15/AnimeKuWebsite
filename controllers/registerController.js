@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcryptjs = require("bcryptjs");
 
 // view halaman form register
 exports.register = (req, res) => {
@@ -24,7 +25,6 @@ exports.addUser = async (req, res) => {
     res.redirect("/login");
     req.flash("msg", "Akun berhasil dibuat! Silahkan login!");
   } catch (error) {
-    res.status(404).send("Error! Gagal menambahkan akun baru!", error);
     console.error("Error: ", error);
   }
 };
