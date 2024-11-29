@@ -9,6 +9,7 @@
           <th>Username</th>
           <th>Email</th>
           <th>Role</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -17,17 +18,12 @@
           <td><%= data.username %></td>
           <td><%= data.email %></td>
           <td><%= data.role %></td>
-          <td>
             <form
               action="/admin/datauser/delete?_method=DELETE"
               method="POST"
               class="d-inline"
             >
-              <input
-                type="hidden"
-                name="username"
-                value="<%= data.username %>"
-              />
+              <input type="hidden" name="username" value="<%= data.username %>" />
               <button
                 type="submit"
                 class="btn btn-danger badge"

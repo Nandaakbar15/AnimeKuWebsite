@@ -29,7 +29,7 @@ exports.checkLogin = async (req, res) => {
       res.redirect("/user/dashboarduser");
     }
   } catch (error) {
-    res.status(404).send("Error! Email atau passowrd salah!", error);
+    // res.status(404).send("Error! Email atau passowrd salah!", error);
     console.error("Error: ", error);
   }
 };

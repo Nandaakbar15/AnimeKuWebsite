@@ -1,0 +1,25 @@
+<div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6">
+        <img
+          class="card-img-top mb-5 mb-md-0"
+          src="/images/<%= anime.image %>"
+          style="width: 400px; height: 600px; object-fit: cover"
+        />
+      </div>
+      <div class="col-md-6">
+        <h1 class="display-5 fw-bolder"><%= anime.title %></h1>
+        <h3>Author</h3>
+        <p class="lead"><%= anime.author %></p>
+        <h3>Genre Anime</h3>
+        <p class="lead"><%= anime.genre %></p>
+        <h3>First Aired</h3>
+        <p class="lead"><%= anime.first_aired %></p>
+        <h3>Status Anime</h3>
+        <p class="lead"><%= anime.status %></p>
+        <div class="d-flex">
+          <a href="/user/anime" class="btn btn-primary">Kembali</a>
+        </div>
+      </div>
+    </div>
+  </div>

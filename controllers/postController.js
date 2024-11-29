@@ -61,7 +61,7 @@ exports.storePost = async (req, res) => {
   }
 };
 
-exports.edit = async (req, res) => {
+exports.editPost = async (req, res) => {
   try {
     const post = Post.findOne({ title: req.params.title });
 
@@ -79,3 +79,16 @@ exports.edit = async (req, res) => {
     console.error("Error: ", error);
   }
 };
+
+exports.deletePost = async(req, res) => {
+  try {
+    const post = Post.deleteOne({_id: req.params._id});
+    post.save();
+
+    res.redirect("/admin/datapost");
+    req.flash("msg", "Data Post berhasil di hapus!");
+  } catch(error) {
+    res.status(404).send("Failed to delete the data!");
+    console.error("Error : ", error);
+  }
+}

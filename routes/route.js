@@ -20,6 +20,8 @@ const {
   indexPost,
   createPost,
   storePost,
+  editPost,
+  deletePost
 } = require("../controllers/postController");
 
 // data user controller
@@ -32,7 +34,7 @@ const { login, checkLogin, logout } = require("../controllers/loginController");
 const { register, addUser } = require("../controllers/registerController");
 
 // user non admin controller
-const {indexUser} = require("../controllers/userController");
+const {indexUser, indexAnime, detailAnime, listPost} = require("../controllers/userController");
 
 
 const isAuthenticated = (req, res, next) => {
@@ -78,6 +80,12 @@ router.get("/admin/datapost/viewtambahPost", createPost);
 // logic tambah data post
 router.post("/admin/datapost/tambahPost", upload.single("image"), storePost);
 
+// view update post
+router.get("/admin/datapost/edit/:title", editPost);
+
+// logic update post
+
+
 // view halaman form tambah anime
 router.get("/admin/dataanime/viewtambah_anime", create);
 
@@ -98,5 +106,18 @@ router.get("/admin/datauser", indexDataUser);
 
 // route untuk user biasa (bukan admin)
 router.get("/user/dashboarduser", indexUser);
+
+// route list anime
+router.get("/user/anime", indexAnime);
+
+// route detaii anime
+router.get("/user/anime/detailanime/:title", detailAnime);
+
+// route list posts / berita
+router.get("/user/post", listPost);
+
+// route detail dari post
+
+
 
 module.exports = router;
